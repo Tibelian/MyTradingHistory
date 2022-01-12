@@ -34,15 +34,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Tibelian/MyTradingHistory.git"
-  },
-  "author": "Tibelian",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Tibelian/MyTradingHistory/issues"
-  },
-  "homepage": "https://github.com/Tibelian/MyTradingHistory#readme"
+  }
 }
