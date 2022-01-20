@@ -5,6 +5,8 @@ import './App.css';
 import MainMenu from './_Partials/MainMenu';
 import Footer from './_Partials/Footer';
 import Summary from './Pages/Summary/Summary';
+import Header from './_Partials/Header';
+import Breadcrumb from './_Partials/Breadcrumb';
 
 class App extends React.Component {
 
@@ -23,6 +25,9 @@ class App extends React.Component {
 
       return (
         <BrowserRouter>
+
+          <Header />
+
           <div id="content">
 
             <aside id="aside" className={asideClassNames}>
@@ -31,9 +36,7 @@ class App extends React.Component {
 
             <main id="main">
             
-              {/* 
               <Breadcrumb />
-              */}
 
               <Routes>
 

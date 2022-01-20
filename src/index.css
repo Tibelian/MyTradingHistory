@@ -1,13 +1,358 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+
+/*
+website colors
+*/
+:root {
+  --primary: #3498DB;
+  --primary-dark: #2874A6;
+  --background: #FDFEFE;
+  --background-dark: #E5E8E8;
+  --text-primary: #fff;
+  --text-background: #333;
+  --aside-width: 185px;
+  --header-height: 54px;
+  --shadow-sm: 0 .125rem .25rem rgba(0,0,0,.075);
+}
+.bg-background {
+  background-color: var(--background);
+  color: var(--text-background);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+/*
+layout
+*/
+html {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+  background-color: var(--background-dark);
+  font-family: 'Ubuntu', sans-serif;
+}
+#root {
+  height: 100%;
+}
+
+
+/*
+main content
+*/
+#content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+#main {
+  margin-left: var(--aside-width);
+  margin-top: var(--header-height);
+  padding: 35px;
+  transition: all 1s;
+}
+
+
+
+
+/*
+page header
+*/
+#header {
+  background-color: var(--primary);
+  color: var(--text-primary);
+  height: var(--header-height);
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+
+/*
+page footer
+*/
+#footer {
+  margin-top: auto;
+  margin-left: var(--aside-width);
+  text-align: center;
+  padding: 10px 0;
+}
+#footer a {
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+
+
+
+
+
+
+/*
+bootstrap modifications
+*/
+.btn-primary, .nav-pills .nav-link.active, .nav-pills .nav-link:hover {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: var(--text-primary);
+}
+.btn-primary:hover, .btn-primary.active, .btn-primary:focus {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+  color: var(--text-primary);
+}
+.nav-pills .nav-link {
+  margin-bottom: 5px;
+  color: var(--text-background);
+}
+
+
+
+
+
+
+/*
+side bar menu
+*/
+#aside {
+  position: fixed;
+  z-index: 10;
+  width: var(--aside-width);
+  height: 100%;
+  background-color: var(--background);
+  transition: all 1s;
+  top: var(--header-height);
+}
+#aside:not(.custom-aside) {
+  overflow-x: hidden;
+}
+#aside * {
+  transition: opacity 1s;
+  opacity: 1;
+}
+#aside.custom-aside * {
+  transition: opacity 1s;
+  visibility: visible;
+  opacity: 1;
+}
+#aside .nav-user a {
+  color: var(--text-background);
+  text-decoration: none;
+}
+#aside .nav-user a:hover span {
+  color: var(--primary);
+}
+#aside .nav-user-info {
+  transition: all 1s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 1;
+  margin-left: 5px;
+}
+#aside .nav-user small {
+  font-size: 10px;
+}
+#aside:not(.custom-aside) .nav-link {
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+}
+#aside:not(.custom-aside)  .nav-link i {
+  margin-right: 7px;
+}
+/*
+sidebar only mobile
+*/
+@media (max-width: 768px) {
+  
+  #aside {
+      width: 0;
+  }
+  #aside * {
+      transition: all .4s;
+      visibility: hidden;
+      opacity: 0;
+  }
+  #main, #footer {
+      margin-left: 0;
+  }
+  #main {
+      padding: 15px;
+  }
+  #aside.custom-aside {
+      width: var(--aside-width);
+  }
+
+}
+/*
+sidebar only pc
+*/
+@media (min-width: 768px) {
+  #aside.custom-aside {
+      width: 75px;
+  }
+  #aside.custom-aside ~ #main {
+      margin-left: 75px;
+  }
+  #aside.custom-aside .nav-link span, #aside.custom-aside .nav-user-info {
+      transition: all 0s;
+      opacity: 0;
+      visibility: hidden;
+      width: 0;
+      height: 0;
+      position: absolute;
+  }
+  #aside.custom-aside .nav-link:hover, #aside.custom-aside .nav-user:hover {
+      position: relative;
+  }
+  #aside.custom-aside .nav-link:hover span, #aside.custom-aside .nav-user a:hover .nav-user-info {
+      visibility: visible;
+      opacity: 1;
+      background-color: var(--primary);
+      position: absolute;
+      top: 0;
+      left: 75px;
+      width: auto;
+      height: auto;
+      padding: 10px;
+      border-radius: 5px;
+      color: var(--text-primary);
+      box-shadow: var(--shadow-sm);
+  }
+  #aside.custom-aside .nav-user a:hover .nav-user-info {
+      top: 8px;
+      left: 85px;
+  }
+  #aside.custom-aside .nav-user a:hover .nav-user-info span {
+      color: var(--text-primary);
+  }
+
+}
+
+
+
+
+/*
+searchform only mobile
+*/
+@media (max-width: 768px) {
+  
+  #search-form {
+      margin-left: 0 !important;
+      position: fixed;
+      top: 55px;
+      left: 10px;
+      right: 10px;
+      width: calc(100% - 20px) !important;
+  }
+
+}
+
+
+
+
+/*
+custom scrollbar
+*/
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+
+
+/*
+alerts
+*/
+#alerts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: fixed;
+  top: 65px;
+  right: 10px;
+  padding-bottom: 10px;
+}
+
+
+/*
+loader animation
+*/
+#loader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s;
+}
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: var(--primary);
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+@keyframes lds-facebook {
+0% {
+  top: 8px;
+  height: 64px;
+}
+50%, 100% {
+  top: 24px;
+  height: 32px;
+}
+}
+
+
+
+
+label.upload {
+  padding: 30px;
+  border: 1px dashed #777;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+label.upload:hover {
+  background-color: rgba(0, 0, 0, .05);
 }
