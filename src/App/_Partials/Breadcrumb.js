@@ -10,9 +10,9 @@ class Breadcrumb extends React.Component {
 
         return (
             <nav style={navStyle} aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Dashboard</li>
-                    <li class="breadcrumb-item active" aria-current="page">title</li>
+                <ol className="breadcrumb">
+                    <li className="breadcrumb-item">Dashboard</li>
+                    <li className="breadcrumb-item active" aria-current="page">{this.props.currentPage}</li>
                 </ol>
             </nav>
         );
