@@ -2,6 +2,8 @@ import { faAward, faCheck, faTasks, faTimes } from '@fortawesome/free-solid-svg-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
+import Chart from 'chart.js/auto';
+
 class SummaryPage extends React.Component {
 
     constructor(props) {
@@ -11,6 +13,28 @@ class SummaryPage extends React.Component {
 
     componentDidMount() {
         this.props.handleCurrentPage('Summary');
+        this.loadCharts();
+    }
+
+    loadCharts = () => {
+        const labels = [ 'January', 'February', 'March', 'April', 'May', 'June', ];
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [0, 10, 5, 2, 20, 30, 45],
+            }]
+        };
+        new Chart(
+            document.getElementById('myChart1'),
+            { type: 'line', data: data, options: {} }
+        );
+        new Chart(
+            document.getElementById('myChart2'),
+            { type: 'bar', data: data, options: {} }
+        );
     }
 
     render() {
