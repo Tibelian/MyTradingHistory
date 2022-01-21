@@ -2,19 +2,29 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import './App.css';
+
 import MainMenu from './_Partials/MainMenu';
 import Footer from './_Partials/Footer';
-import Summary from './Pages/Summary/Summary';
 import Header from './_Partials/Header';
 import Breadcrumb from './_Partials/Breadcrumb';
+
+import SummaryPage from './Pages/Summary/SummaryPage';
+import TransactionsPage from './Pages/Transactions/TransactionsPage';
+import ReportsPage from './Pages/Reports/ReportsPage';
+import CalendarPage from './Pages/Calendar/CalendarPage';
 
 class App extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = { 
-      asideCollapsed: false
+      asideCollapsed: false,
+      currentPage: 'Not Found'
     };
+  }
+
+  handleCurrentPage = (newPage) => {
+    this.setState({currentPage: newPage});
   }
 
   render() {
@@ -36,14 +46,14 @@ class App extends React.Component {
 
             <main id="main">
             
-              <Breadcrumb />
+              <Breadcrumb currentPage={this.state.currentPage} />
 
               <Routes>
 
-                <Route path="/" element={<Summary />} />
-                <Route path="/transactions" />
-                <Route path="/reports" />
-                <Route path="/calendar" />
+                <Route path="/" element={<SummaryPage handleCurrentPage={this.handleCurrentPage}  />} />
+                <Route path="/transactions" element={<TransactionsPage handleCurrentPage={this.handleCurrentPage} />} />
+                <Route path="/reports" element={<ReportsPage handleCurrentPage={this.handleCurrentPage} />} />
+                <Route path="/calendar" element={<CalendarPage handleCurrentPage={this.handleCurrentPage} />} />
 
               </Routes>
 
