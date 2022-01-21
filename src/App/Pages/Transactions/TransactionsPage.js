@@ -1,108 +1,131 @@
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faFileExport, faFileImport, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import ExportModal from './_ExportModal';
+import ImportModal from './_ImportModal';
+import NewEntryModal from './_NewEntryModal';
 
 class TransactionsPage extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { items: [], text: '' };
+        this.state = { 
+            showImportCSV: false,
+            showExportCSV: false,
+            showNewEntry: false,
+            transactions: [
+                {
+                    date: '02/07/2021 16:00',
+                    product: 'ALIBABA GROUP HOLDING',
+                    quantity: -4,
+                    price: '217 USD',
+                    value: '868 USD',
+                    commission: -0.51,
+                    total: 730.95
+                },
+                {
+                    date: '23/06/2021 19:23',
+                    product: 'ALIBABA GROUP HOLDING',
+                    quantity: 4,
+                    price: '214.46 USD',
+                    value: '-857.84 USD',
+                    commission: -0.51,
+                    total: -719.45
+                },
+                {
+                    date: '25/06/2021 21:32',
+                    product: 'IT TECH PACKAGING INC',
+                    quantity: 500,
+                    price: '0.4762 USD',
+                    value: '-238.1 USD',
+                    commission: -2.18,
+                    total: -201.68
+                },
+                {
+                    date: '25/06/2021 21:31',
+                    product: 'IT TECH PACKAGING INC',
+                    quantity: 500,
+                    price: '0.4762 USD',
+                    value: '-238.1 USD',
+                    commission: -2.18,
+                    total: -201.68
+                }
+            ]
+        };
     }
 
     componentDidMount() {
         this.props.handleCurrentPage('Transactions');
     }
 
+    setShowImportCSV = (value) => {
+        this.setState({showImportCSV: value});
+    }
+
+    setShowNewEntry = (value) => {
+        this.setState({showNewEntry: value});
+    }
+
+    setShowExportCSV = (value) => {
+        this.setState({showExportCSV: value});
+    }
+
     render() {
+
         return (
             <div>
                 <section className="row mb-4">
                     <div className="col-12 d-flex">
-                        <div className="bg-background shadow-sm p-3 rounded">
-                            <a href="{{ url('dashboard_transaction_add') }}" className="btn btn-primary">
-                                <FontAwesomeIcon icon={faPlusCircle}/> Agregar nueva
-                            </a>
-                            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalImportCsv">
-                                <FontAwesomeIcon icon={faPlusCircle}/> Importar datos
+                        <div className="bg-background shadow-sm p-3">
+                            <button className="btn btn-primary" onClick={()=>{this.setShowNewEntry(true)}}>
+                                <FontAwesomeIcon icon={faPlusCircle}/> New entry
                             </button>
-                            <a href="{{ url('dashboard_transaction_export_csv') }}" className="btn btn-primary">
-                                <FontAwesomeIcon icon={faPlusCircle}/> Exportar datos
-                            </a>
+                            <button className="btn btn-primary mx-3" onClick={()=>{this.setShowImportCSV(true)}}>
+                                <FontAwesomeIcon icon={faFileImport}/> Import data
+                            </button>
+                            <button className="btn btn-primary" onClick={()=>{this.setShowExportCSV(true)}}>
+                                <FontAwesomeIcon icon={faFileExport}/> Export data
+                            </button>
                         </div>
                     </div>
                 </section>
                 <section className="row mb-4">
                     <div className="col-12">
-                        <div className="bg-background shadow-sm p-3 rounded">
+                        <div className="bg-background shadow-sm p-3">
                             <div className="table-responsive">
-                                <table className="datatable table table-sm table-hover table-stripped">
-                                    <thead className="table-light">
+                                <table className="table table-sm table-hover table-stripped mb-0">
+                                    <thead>
                                         <tr>
-                                            <th>Producto</th>
-                                            <th>ISIN</th>
-                                            <th>Bolsa de</th>
-                                            <th>Centro de ejecución</th>
-                                            <th>Número</th>
-                                            <th>Precio</th>
-                                            <th>Valor local</th>
-                                            <th>Valor</th>
-                                            <th>Tipo de cambio</th>
-                                            <th>Coste transacción</th>
+                                            <th>Date</th>
+                                            <th>Product</th>
+                                            <th>Quantity</th>
+                                            <th>Price</th>
+                                            <th>Value</th>
+                                            <th>Commission</th>
                                             <th>Total</th>
-                                            <th>Fecha y hora</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {/*
-                                        {% for transaction in transactions %}
-
-                                            <tr>
-                                                <td>{{ transaction.product }}</td>
-                                                <td>{{ transaction.isin }}</td>
-                                                <td>{{ transaction.bolsa }}</td>
-                                                <td>{{ transaction.executionCenter }}</td>
-                                                <td>{{ transaction.number }}</td>
-                                                <td>{{ transaction.price ~ ' ' ~ transaction.priceCurrency }}</td>
-                                                <td>{{ transaction.value ~ ' ' ~ transaction.valueCurrency }}</td>
-                                                <td>{{ transaction.localValue ~ ' ' ~ transaction.localValueCurrency }}</td>
-                                                <td>{{ transaction.changeType }}</td>
-                                                <td>{{ transaction.cost }}</td>
-                                                {% if transaction.total > 0 %}
-                                                    <td><span className="badge rounded-pill bg-success">{{ transaction.total }}</span></td>
-                                                {% else %}
-                                                    <td><span className="badge rounded-pill bg-danger">{{ transaction.total }}</span></td>
-                                                {% endif %}
-                                                <td>{{ transaction.date|date('d/m/Y H:i') }}</td>
+                                        {this.state.transactions.map((tx, index) => (
+                                            <tr key={index}>
+                                                <td>{tx.date}</td>
+                                                <td>{tx.product}</td>
+                                                <td>{tx.quantity}</td>
+                                                <td>{tx.price}</td>
+                                                <td>{tx.value}</td>
+                                                <td>{tx.commission}</td>
+                                                <td>{tx.total}</td>
                                             </tr>
-
-                                        {% endfor %}
-                                        */}
+                                        ))}
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </section>
-                <div className="modal fade" id="modalImportCsv" tabindex="-1" aria-labelledby="modalImportCsvLabel" aria-hidden="true">
-                    <div className="modal-dialog">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="modalImportCsvLabel">Importar archivo CSV</h5>
-                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div className="modal-body">
-                                <div className="mb-3">
-                                    <label>Archivo CSV</label>
-                                    <input className="form-control form-control-lg" />
-                                </div>
-                                <div className="d-flex flex-wrap justify-content-between">
-                                    <button type="submit" className="btn btn-primary">Subir archivo e importar datos</button>
-                                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <ImportModal show={this.state.showImportCSV} setShow={this.setShowImportCSV} />
+                <NewEntryModal show={this.state.showNewEntry} setShow={this.setShowNewEntry} />
+                <ExportModal show={this.state.showExportCSV} setShow={this.setShowExportCSV} />
             </div>
         );
     }
