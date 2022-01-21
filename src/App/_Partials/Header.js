@@ -1,6 +1,7 @@
 import { faBars, faBell, faInfoCircle, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { Alert } from "react-bootstrap";
 
 class Header extends React.Component {
 
@@ -38,11 +39,12 @@ class Header extends React.Component {
                 </section>
 
                 <div id="alerts">
-                    <div className="alert alert-info alert-dismissible fade show shadow-sm mb-2" role="alert">
+                    {/*
+                    <Alert variant="danger" dismissible={true} transition={true}>
                         <FontAwesomeIcon icon={faInfoCircle} className="me-2" />
-                        TEST MESSAGE
-                        <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
+                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+                    </Alert>
+                    */}
                 </div>
             
             </header>
