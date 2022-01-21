@@ -1,3 +1,5 @@
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
 class TransactionsPage extends React.Component {
@@ -17,9 +19,15 @@ class TransactionsPage extends React.Component {
                 <section className="row mb-4">
                     <div className="col-12 d-flex">
                         <div className="bg-background shadow-sm p-3 rounded">
-                            <a href="{{ url('dashboard_transaction_add') }}" className="btn btn-primary"><i className="fas fa-plus-circle"></i> Agregar nueva</a>
-                            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalImportCsv"><i className="fas fa-plus-circle"></i> Importar datos</button>
-                            <a href="{{ url('dashboard_transaction_export_csv') }}" className="btn btn-primary"><i className="fas fa-plus-circle"></i> Exportar datos</a>
+                            <a href="{{ url('dashboard_transaction_add') }}" className="btn btn-primary">
+                                <FontAwesomeIcon icon={faPlusCircle}/> Agregar nueva
+                            </a>
+                            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalImportCsv">
+                                <FontAwesomeIcon icon={faPlusCircle}/> Importar datos
+                            </button>
+                            <a href="{{ url('dashboard_transaction_export_csv') }}" className="btn btn-primary">
+                                <FontAwesomeIcon icon={faPlusCircle}/> Exportar datos
+                            </a>
                         </div>
                     </div>
                 </section>

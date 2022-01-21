@@ -1,3 +1,5 @@
+import { faAward, faCheck, faTasks, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
 class SummaryPage extends React.Component {
@@ -17,7 +19,7 @@ class SummaryPage extends React.Component {
                 <section className="row mb-4">
                     <div className="col-6 col-sm-4 col-lg-3">
                         <div className="bg-background shadow-sm d-flex align-items-center p-3 rounded">
-                            <i className="fas fa-tasks fa-3x text-secondary me-3"></i>
+                            <FontAwesomeIcon icon={faTasks} className="fa-3x text-secondary me-3" />
                             <div className="small">
                                 <h3 className="mb-0">123</h3>
                                 <span className="text-secondary">Operaciones realizadas</span>
@@ -26,7 +28,7 @@ class SummaryPage extends React.Component {
                     </div>
                     <div className="col-6 col-sm-4 col-lg-3">
                         <div className="bg-background shadow-sm d-flex align-items-center p-3 rounded">
-                            <i className="fas fa-check fa-3x text-primary me-3"></i>
+                            <FontAwesomeIcon icon={faCheck} className="fa-3x text-primary me-3" />
                             <div className="small">
                                 <h3 className="mb-0">32</h3>
                                 <span className="text-primary">Operaciones con éxito</span>
@@ -35,7 +37,7 @@ class SummaryPage extends React.Component {
                     </div>
                     <div className="col-6 col-sm-4 col-lg-3">
                         <div className="bg-background shadow-sm d-flex align-items-center p-3 rounded">
-                            <i className="fas fa-times fa-3x text-danger me-3"></i>
+                            <FontAwesomeIcon icon={faTimes} className="fa-3x text-danger me-3" />
                             <div className="small">
                                 <h3 className="mb-0">12</h3>
                                 <span className="text-danger">Operaciones falladas</span>
@@ -44,7 +46,7 @@ class SummaryPage extends React.Component {
                     </div>
                     <div className="col-6 col-sm-4 col-lg-3">
                         <div className="bg-background shadow-sm d-flex align-items-center p-3 rounded">
-                            <i className="fas fa-award fa-3x text-success me-3"></i>
+                            <FontAwesomeIcon icon={faAward} className="fa-3x text-success me-3" />
                             <div className="small">
                                 <h3 className="mb-0">50%</h3>
                                 <span className="text-success">Beneficio</span>

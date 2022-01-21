@@ -1,3 +1,4 @@
+import { faCalendar, faChartPie, faEdit, faFolder } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { NavLink } from "react-router-dom";
@@ -24,22 +25,22 @@ class MainMenu extends React.Component {
                         <ul className="nav nav-pills flex-column">
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/">
-                                    <FontAwesomeIcon icon="chart-pie" /> <span>Summary</span>
+                                    <FontAwesomeIcon icon={faChartPie} className="me-2" /> <span>Summary</span>
                                 </NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/transactions">
-                                    <FontAwesomeIcon icon="edit" /> <span>Transactions</span>
+                                    <FontAwesomeIcon icon={faEdit} className="me-2" /> <span>Transactions</span>
                                 </NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/reports">
-                                    <FontAwesomeIcon icon="folder" /> <span>Reports</span>
+                                    <FontAwesomeIcon icon={faFolder} className="me-2" /> <span>Reports</span>
                                 </NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/calendar">
-                                    <FontAwesomeIcon icon="calendar" /> <span>Calendar</span>
+                                    <FontAwesomeIcon icon={faCalendar} className="me-2" /> <span>Calendar</span>
                                 </NavLink>
                             </li>
                         </ul>
