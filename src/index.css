@@ -7,7 +7,7 @@ website colors
   --primary: #3498DB;
   --primary-dark: #2874A6;
   --background: #FDFEFE;
-  --background-dark: #E5E8E8;
+  --background-dark: #f2f2f2;
   --text-primary: #fff;
   --text-background: #333;
   --aside-width: 185px;
@@ -18,7 +18,15 @@ website colors
   background-color: var(--background);
   color: var(--text-background);
 }
-
+.color-primary {
+  color: var(--primary);
+}
+.bgcolor-primary {
+  background-color: var(--primary);
+}
+.color-transparent {
+  color: rgba(0, 0, 0, .1);
+}
 
 /*
 layout
@@ -220,7 +228,6 @@ sidebar only pc
       width: auto;
       height: auto;
       padding: 10px;
-      border-radius: 5px;
       color: var(--text-primary);
       box-shadow: var(--shadow-sm);
   }
