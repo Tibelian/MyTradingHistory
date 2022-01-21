@@ -117,7 +117,7 @@ class SummaryPage extends React.Component {
                 
                 <section className="row mb-4">
                     <div className="col-12 col-xl-5 mb-4 mb-xl-0">
-                        <div className="bg-background shadow-sm p-3">
+                        <div className="bg-background shadow-sm p-3 h-100">
                             <h3 className="h6">Account Performance</h3>
                             <div className="mx-auto" style={{position:'relative'}}>
                                 <canvas id="chartAccount"></canvas>
@@ -125,7 +125,7 @@ class SummaryPage extends React.Component {
                         </div>
                     </div>
                     <div className="col-12 col-xl-4 col-lg-6 mb-4 mb-lg-0">
-                        <div className="bg-background shadow-sm p-3">
+                        <div className="bg-background shadow-sm p-3 h-100">
                             <h3 className="mb-0 h6">Instruments</h3>
                             <div className="mx-auto d-flex align-items-center" style={{position:'relative',width:330}}>
                                 <canvas id="chartInstruments"></canvas>
@@ -133,7 +133,7 @@ class SummaryPage extends React.Component {
                         </div>
                     </div>
                     <div className="col-12 col-xl-3 col-lg-6">
-                        <div className="bg-background shadow-sm p-3 d-flex flex-column">
+                        <div className="bg-background shadow-sm p-3 d-flex flex-column h-100">
                             <div className="col-12 d-flex align-items-center px-4">
                                 <h3 className="mb-0 h6">Potential Performance</h3>
                                 <div className="mx-auto d-flex align-items-center" style={{position:'relative',height:170,width:220}}>
