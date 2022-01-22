@@ -413,3 +413,7 @@ label.upload:hover {
     font-size: 14px;
   }
 }
+.mth_calendar-event {
+  font-size: 14px !important;
+  padding: 0 5px;
+}

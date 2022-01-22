@@ -181,9 +181,9 @@ class DetailPage extends React.Component {
                                     <div className="d-flex flex-column ps-3 text-center">
                                         <small className="text-muted">Profit</small>
                                         {this.state.report.profitUsd < 0 ? (
-                                            <span className="badge bg-danger">-${this.state.report.profitUsd}</span>
+                                            <span className="badge bg-danger">- ${this.state.report.profitUsd}</span>
                                         ) : (
-                                            <span className="badge bg-success">+${this.state.report.profitUsd}</span>
+                                            <span className="badge bg-success">+ ${this.state.report.profitUsd}</span>
                                         )}
                                     </div>
                                 </div>
@@ -211,7 +211,7 @@ class DetailPage extends React.Component {
                                     <tbody>
                                         {this.state.report.transactions.map((tx, index) => (
                                             <tr key={index}>
-                                                <td>{tx.quantity < 0 ? "Purchase" : "Sale"}</td>
+                                                <td>{tx.quantity > 0 ? "Purchase" : "Sale"}</td>
                                                 <td>{tx.date}</td>
                                                 <td>{tx.quantity}</td>
                                                 <td>{tx.price}</td>

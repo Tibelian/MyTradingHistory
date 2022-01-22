@@ -101,9 +101,9 @@ class ReportsPage extends React.Component {
                                             if (rp.profitUsd == null) 
                                                 return <span />;
                                             if (rp.profitUsd < 0) 
-                                                return <span className="badge bg-danger">-${rp.profitUsd}</span>
+                                                return <span className="badge bg-danger">- ${rp.profitUsd}</span>
                                             if (rp.profitUsd >= 0) 
-                                                return <span className="badge bg-success">${rp.profitUsd}</span>
+                                                return <span className="badge bg-success">+ ${rp.profitUsd}</span>
                                         })()}
                                     </td>
                                     <td>
@@ -111,9 +111,9 @@ class ReportsPage extends React.Component {
                                             if (rp.profitPercentage == null) 
                                                 return <span />;
                                             if (rp.profitPercentage < 0) 
-                                                return <span className="badge bg-danger">-${rp.profitPercentage}</span>
+                                                return <span className="badge bg-danger">- {rp.profitPercentage}%</span>
                                             if (rp.profitPercentage >= 0) 
-                                                return <span className="badge bg-success">${rp.profitPercentage}</span>
+                                                return <span className="badge bg-success">+ {rp.profitPercentage}%</span>
                                         })()}
                                     </td>
                                     <td>{rp.operation}</td>

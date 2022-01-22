@@ -23,9 +23,10 @@ class CalendarPage extends React.Component {
                 <FullCalendar
                     plugins={[dayGridPlugin]}
                     initialView="dayGridMonth"
+                    eventClassNames="mth_calendar-event"
                     events={[
-                        { title: 'Buy BABA Shares', date: '2022-01-22' },
-                        { title: 'Sell BABA Shares', date: '2022-01-29', backgroundColor: '#ff5555', borderColor: '#ff5555' }
+                        { title: 'Buy 4 BABA (-857.84 USD)', date: '2022-01-22', backgroundColor: '#ff5555', borderColor: '#ff5555' },
+                        { title: 'Sell 4 BABA (+868.00 USD)', date: '2022-01-29', backgroundColor: '#005555', borderColor: '#005555' }
                     ]}
                     contentHeight={dHeight}
                 />

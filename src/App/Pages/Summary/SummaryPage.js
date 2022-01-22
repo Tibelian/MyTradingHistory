@@ -46,7 +46,21 @@ class SummaryPage extends React.Component {
         };
         new Chart(
             document.getElementById('chartAccount'),
-            { type: 'line', data: data, options: { } }
+            { 
+                type: 'line', data: data, 
+                options: {
+                    scales: {
+                        y: {
+                            ticks: {
+                                callback: function(val, index) {
+                                    console.log(val);
+                                    return this.getLabelForValue(val) + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         );
         new Chart(
             document.getElementById('chartPotential'),
@@ -210,7 +224,7 @@ class SummaryPage extends React.Component {
                         <div className="bg-background shadow-sm d-flex align-items-center p-3 position-relative">
                             <FontAwesomeIcon icon={faPiggyBank} className="fa-3x color-transparent me-3 position-absolute end-0" />
                             <div className="small">
-                                <h3 className="mb-0">${this.state.totalDeposit}</h3>
+                                <h3 className="mb-0">{this.state.totalDeposit} <small><sup>USD</sup></small></h3>
                                 <span className="color-primary">Total Deposit</span>
                             </div>
                         </div>
@@ -219,7 +233,7 @@ class SummaryPage extends React.Component {
                         <div className="bg-background shadow-sm d-flex align-items-center p-3 position-relative">
                             <FontAwesomeIcon icon={faHandHoldingUsd} className="fa-3x color-transparent me-3 position-absolute end-0" />
                             <div className="small">
-                                <h3 className="mb-0">${this.state.withdrawal}</h3>
+                                <h3 className="mb-0">{this.state.withdrawal} <small><sup>USD</sup></small></h3>
                                 <span className="color-primary">Withdrawal</span>
                             </div>
                         </div>
@@ -228,7 +242,7 @@ class SummaryPage extends React.Component {
                         <div className="bg-background shadow-sm d-flex align-items-center p-3 position-relative">
                             <FontAwesomeIcon icon={faFileInvoiceDollar} className="fa-3x color-transparent me-3 position-absolute end-0" />
                             <div className="small">
-                                <h3 className="mb-0">${this.state.commissions}</h3>
+                                <h3 className="mb-0">{this.state.commissions} <small><sup>USD</sup></small></h3>
                                 <span className="color-primary">Commissions</span>
                             </div>
                         </div>
@@ -237,7 +251,7 @@ class SummaryPage extends React.Component {
                         <div className="bg-background shadow-sm d-flex align-items-center p-3 position-relative">
                             <FontAwesomeIcon icon={faThumbsUp} className="fa-3x color-transparent me-3 position-absolute end-0" />
                             <div className="small">
-                                <h3 className="mb-0">${this.state.bestOperation}</h3>
+                                <h3 className="mb-0">{this.state.bestOperation} <small><sup>USD</sup></small></h3>
                                 <span className="color-primary">Best Operation</span>
                             </div>
                         </div>
@@ -246,7 +260,7 @@ class SummaryPage extends React.Component {
                         <div className="bg-background shadow-sm d-flex align-items-center p-3 position-relative">
                             <FontAwesomeIcon icon={faThumbsDown} className="fa-3x color-transparent me-3 position-absolute end-0" />
                             <div className="small">
-                                <h3 className="mb-0">${this.state.worstOperation}</h3>
+                                <h3 className="mb-0">{this.state.worstOperation} <small><sup>USD</sup></small></h3>
                                 <span className="color-primary">Worst Operation</span>
                             </div>
                         </div>
