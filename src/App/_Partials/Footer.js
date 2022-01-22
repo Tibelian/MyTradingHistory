@@ -8,11 +8,11 @@ class Footer extends React.Component {
             <section className="container-fluid">
                 <div className="row">
                     <div className="col-12">
-                        <a href="./">Términos y condiciones</a>
-                        <a href="./">Política de privacidad</a>
+                        <a href="./">Terms and conditions</a>
+                        <a href="./">Privacy policy</a>
                     </div>
                     <div className="col-12">
-                        &copy; Todos los derechos reservados
+                        &copy; All Rights Reserved
                     </div>
                 </div>
             </section>
