@@ -51,7 +51,10 @@ class DetailPage extends React.Component {
 
     componentDidMount() {
         this.props.handleCurrentPage('Reports / ' + this.state.report.name.toLowerCase());
-        this.mountChart();
+        
+        // TESTING 
+        if (parseInt(this.props.id) === 1) 
+            this.mountChart();
     }
 
     mountChart = () => {
@@ -124,7 +127,7 @@ class DetailPage extends React.Component {
     render() {
 
         // TESTING
-        if (this.props.id !== 1) 
+        if (parseInt(this.props.id) !== 1) 
             return <span className="text-danger h1">THIS REPORT IS NOT AVAILABLE</span>
 
         const tags = [
