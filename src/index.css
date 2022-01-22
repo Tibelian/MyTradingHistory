@@ -372,3 +372,37 @@ label.upload:hover {
     min-width: 200px;
   }
 }
+
+.mth_calendar * {
+  border: 0 !important;
+}
+.mth_calendar button {
+  background-color: var(--primary) !important;
+}
+.mth_calendar button:hover {
+  background-color: var(--primary-dark) !important;
+}
+.mth_calendar td, .mth_calendart th {
+  border: 3px solid #fff !important;
+  background-color: rgba(52, 152, 219, .05);
+}
+.mth_calendar a {
+  text-decoration: none;
+}
+.mth_calendar th a {
+  color: var(--primary-dark);
+  font-size: 20px;
+  text-align: left;
+}
+.mth_calendar td a {
+  font-size: 18px;
+  color: var(--primary);
+}
+@media (max-width: 518px) {
+  .mth_calendar th {
+    font-size: 16px;
+  }
+  .mth_calendar td a {
+    font-size: 14px;
+  }
+}
