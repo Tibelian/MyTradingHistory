@@ -427,3 +427,10 @@ label.upload:hover {
   font-size: 13px;
   margin: auto 5px;
 }
+
+.mth_img {
+  min-width: 25px;
+  min-height: 25px;
+  object-fit: cover;
+  object-position: center;
+}

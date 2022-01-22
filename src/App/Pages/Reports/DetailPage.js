@@ -151,21 +151,23 @@ class DetailPage extends React.Component {
         return (
             <div>
                 <section className="row mb-4">
-                    <div className="col-12">
-                        <div className="bg-background shadow-sm p-3 d-flex flex-wrap">
-                            <div className="col-auto d-flex align-items-center mb-3 mb-lg-0">
-                                <img src={this.state.report.logo} alt="logo" className="me-2" width="50" />
-                                <div>
-                                    <h2 className="h5 mb-1">{this.state.report.name}</h2>
-                                    <span className="text-muted">{this.state.report.symbol}</span>
-                                </div>
+                    <div className="col-xl-3 col-lg-4">
+                        <div className="bg-background shadow-sm p-3 h-100 d-flex flex-wrap">
+                            <img src={this.state.report.logo} alt="logo" className="me-2 mth_img" width="50" height="50" />
+                            <div>
+                                <h2 className="h5 mb-1">{this.state.report.name}</h2>
+                                <span className="text-muted">{this.state.report.symbol}</span>
                             </div>
-                            <div className="ms-auto d-flex flex-wrap">
-                                <div className="me-3 d-flex align-items-center mb-3 mb-lg-0">
+                        </div>
+                    </div>
+                    <div className="col-xl-9 col-lg-8">
+                        <div className="bg-background shadow-sm p-3 h-100 d-flex">
+                            <div className="d-flex flex-wrap align-items-center w-100">
+                                <div className="d-flex align-items-center mb-3 mb-lg-0">
                                     <label htmlFor="report_tags">Tags:</label>
                                     <Select options={tags} id="report_tags" className="ms-2" isMulti isClearable={false} />
                                 </div>
-                                <div className="d-flex align-items-center">
+                                <div className="ms-lg-auto d-flex align-items-center">
                                     <div className="d-flex flex-column px-3 text-center border-end">
                                         <small className="text-muted">Trade</small>
                                         {this.state.report.status.toLowerCase() === 'open' ? (
@@ -188,7 +190,7 @@ class DetailPage extends React.Component {
                                     </div>
                                 </div>
                             </div>  
-                        </div>
+                        </div>  
                     </div>
                 </section>
             
