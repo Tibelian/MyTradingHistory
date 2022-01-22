@@ -1,4 +1,4 @@
-import { faBars, faBell, faInfoCircle, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faBell, faInfoCircle, faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Alert } from "react-bootstrap";
@@ -6,14 +6,23 @@ import { Alert } from "react-bootstrap";
 class Header extends React.Component {
 
     render() {
+
+        let menuBtnClass = "btn btn-primary me-2";
+        if (this.props.asideCollapsed)
+            menuBtnClass += " active"; 
+
         return (
             <header id="header" className="shadow">
                 
                 <section className="container-fluid">
                     <div className="row py-2">
                         <div className="col-4 d-flex justify-content-start">
-                            <button type="button" className="btn btn-primary me-2" id="menu-button">
-                                <FontAwesomeIcon icon={faBars} />
+                            <button type="button" className={menuBtnClass} onClick={this.props.toggleMenu}>
+                                {this.props.asideCollapsed ? (
+                                    <FontAwesomeIcon icon={faTimes} />
+                                ) : (
+                                    <FontAwesomeIcon icon={faBars} />
+                                ) }
                             </button>
                             <button type="button" className="btn btn-primary" id="search-button">
                                 <FontAwesomeIcon icon={faSearch} />

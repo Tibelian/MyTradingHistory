@@ -28,46 +28,53 @@ class App extends React.Component {
     this.setState({currentPage: newPage});
   }
 
+  handleAsideCollapsed = () => {
+    this.setState({asideCollapsed: !this.state.asideCollapsed});
+  }
+
   render() {
 
-    let asideClassNames = "shadow";
-    if (this.state.asideCollapsed) 
-      asideClassNames += " custom-aside";
+    let asideClassNames = "shadow", 
+        conentClassNames = "";
+    if (this.state.asideCollapsed) {
+      asideClassNames += " custom-aside"; 
+      conentClassNames = "overlay";
+    }
 
-      return (
-        <BrowserRouter>
+    return (
+      <BrowserRouter>
 
-          <Header />
+        <Header asideCollapsed={this.state.asideCollapsed} toggleMenu={this.handleAsideCollapsed} />
 
-          <div id="content">
+        <div id="content" className={conentClassNames}>
 
-            <aside id="aside" className={asideClassNames}>
-              <MainMenu />
-            </aside>
+          <aside id="aside" className={asideClassNames}>
+            <MainMenu asideCollapsed={this.state.asideCollapsed} toggleMenu={this.handleAsideCollapsed} />
+          </aside>
 
-            <main id="main">
-            
-              <Breadcrumb currentPage={this.state.currentPage} />
+          <main id="main">
+          
+            <Breadcrumb currentPage={this.state.currentPage} />
 
-              <Routes>
+            <Routes>
 
-                <Route path="/" element={<SummaryPage handleCurrentPage={this.handleCurrentPage}  />} />
-                <Route path="/transactions" element={<TransactionsPage handleCurrentPage={this.handleCurrentPage} />} />
-                <Route path="/reports" element={<ReportsPage handleCurrentPage={this.handleCurrentPage} />} />
-                <Route path="/reports/:id" element={<ReportsDetailPage handleCurrentPage={this.handleCurrentPage} />} />
-                <Route path="/calendar" element={<CalendarPage handleCurrentPage={this.handleCurrentPage} />} />
+              <Route path="/" element={<SummaryPage handleCurrentPage={this.handleCurrentPage}  />} />
+              <Route path="/transactions" element={<TransactionsPage handleCurrentPage={this.handleCurrentPage} />} />
+              <Route path="/reports" element={<ReportsPage handleCurrentPage={this.handleCurrentPage} />} />
+              <Route path="/reports/:id" element={<ReportsDetailPage handleCurrentPage={this.handleCurrentPage} />} />
+              <Route path="/calendar" element={<CalendarPage handleCurrentPage={this.handleCurrentPage} />} />
 
-              </Routes>
+            </Routes>
 
-            </main>
+          </main>
 
-            <footer id="footer">
-              <Footer />
-            </footer>
+          <footer id="footer">
+            <Footer />
+          </footer>
 
-          </div>
-        </BrowserRouter>
-      );
+        </div>
+      </BrowserRouter>
+    );
   }
 
 }
