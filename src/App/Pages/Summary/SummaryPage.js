@@ -53,7 +53,6 @@ class SummaryPage extends React.Component {
                         y: {
                             ticks: {
                                 callback: function(val, index) {
-                                    console.log(val);
                                     return this.getLabelForValue(val) + '%';
                                 }
                             }
@@ -188,7 +187,7 @@ class SummaryPage extends React.Component {
                         <div className="bg-background shadow-sm d-flex align-items-center p-3 position-relative">
                             <FontAwesomeIcon icon={faTasks} className="fa-3x color-transparent me-3 position-absolute end-0" />
                             <div className="small">
-                                <h3 className="mb-0">{this.state.totalOperations}</h3>
+                                <h3 className="mb-0 d-flex">{this.state.totalOperations}</h3>
                                 <span className="color-primary">Total Operations</span>
                             </div>
                         </div>
@@ -197,7 +196,7 @@ class SummaryPage extends React.Component {
                         <div className="bg-background shadow-sm d-flex align-items-center p-3 position-relative">
                             <FontAwesomeIcon icon={faCheck} className="fa-3x color-transparent me-3 position-absolute end-0" />
                             <div className="small">
-                                <h3 className="mb-0">{this.state.successfulOperations}</h3>
+                                <h3 className="mb-0 d-flex">{this.state.successfulOperations}</h3>
                                 <span className="color-primary">Successful Operations</span>
                             </div>
                         </div>
@@ -206,7 +205,7 @@ class SummaryPage extends React.Component {
                         <div className="bg-background shadow-sm d-flex align-items-center p-3 position-relative">
                             <FontAwesomeIcon icon={faTimes} className="fa-3x color-transparent me-3 position-absolute end-0" />
                             <div className="small">
-                                <h3 className="mb-0">{this.state.failedOperations}</h3>
+                                <h3 className="mb-0 d-flex">{this.state.failedOperations}</h3>
                                 <span className="color-primary">Failed Operations</span>
                             </div>
                         </div>
@@ -215,7 +214,7 @@ class SummaryPage extends React.Component {
                         <div className="bg-background shadow-sm d-flex align-items-center p-3 position-relative">
                             <FontAwesomeIcon icon={faBalanceScale} className="fa-3x color-transparent me-3 position-absolute end-0" />
                             <div className="small">
-                                <h3 className="mb-0">{this.state.averageProfit}</h3>
+                                <h3 className="mb-0 d-flex">{this.state.averageProfit}</h3>
                                 <span className="color-primary">Average Profit</span>
                             </div>
                         </div>
@@ -224,7 +223,7 @@ class SummaryPage extends React.Component {
                         <div className="bg-background shadow-sm d-flex align-items-center p-3 position-relative">
                             <FontAwesomeIcon icon={faPiggyBank} className="fa-3x color-transparent me-3 position-absolute end-0" />
                             <div className="small">
-                                <h3 className="mb-0">{this.state.totalDeposit} <small><sup>USD</sup></small></h3>
+                                <h3 className="mb-0 d-flex">{this.state.totalDeposit} <span className="mth_currency">USD</span></h3>
                                 <span className="color-primary">Total Deposit</span>
                             </div>
                         </div>
@@ -233,7 +232,7 @@ class SummaryPage extends React.Component {
                         <div className="bg-background shadow-sm d-flex align-items-center p-3 position-relative">
                             <FontAwesomeIcon icon={faHandHoldingUsd} className="fa-3x color-transparent me-3 position-absolute end-0" />
                             <div className="small">
-                                <h3 className="mb-0">{this.state.withdrawal} <small><sup>USD</sup></small></h3>
+                                <h3 className="mb-0 d-flex">{this.state.withdrawal} <span className="mth_currency">USD</span></h3>
                                 <span className="color-primary">Withdrawal</span>
                             </div>
                         </div>
@@ -242,7 +241,7 @@ class SummaryPage extends React.Component {
                         <div className="bg-background shadow-sm d-flex align-items-center p-3 position-relative">
                             <FontAwesomeIcon icon={faFileInvoiceDollar} className="fa-3x color-transparent me-3 position-absolute end-0" />
                             <div className="small">
-                                <h3 className="mb-0">{this.state.commissions} <small><sup>USD</sup></small></h3>
+                                <h3 className="mb-0 d-flex">{this.state.commissions} <span className="mth_currency">USD</span></h3>
                                 <span className="color-primary">Commissions</span>
                             </div>
                         </div>
@@ -251,7 +250,7 @@ class SummaryPage extends React.Component {
                         <div className="bg-background shadow-sm d-flex align-items-center p-3 position-relative">
                             <FontAwesomeIcon icon={faThumbsUp} className="fa-3x color-transparent me-3 position-absolute end-0" />
                             <div className="small">
-                                <h3 className="mb-0">{this.state.bestOperation} <small><sup>USD</sup></small></h3>
+                                <h3 className="mb-0 d-flex">{this.state.bestOperation} <span className="mth_currency">USD</span></h3>
                                 <span className="color-primary">Best Operation</span>
                             </div>
                         </div>
@@ -260,7 +259,7 @@ class SummaryPage extends React.Component {
                         <div className="bg-background shadow-sm d-flex align-items-center p-3 position-relative">
                             <FontAwesomeIcon icon={faThumbsDown} className="fa-3x color-transparent me-3 position-absolute end-0" />
                             <div className="small">
-                                <h3 className="mb-0">{this.state.worstOperation} <small><sup>USD</sup></small></h3>
+                                <h3 className="mb-0 d-flex">{this.state.worstOperation} <span className="mth_currency">USD</span></h3>
                                 <span className="color-primary">Worst Operation</span>
                             </div>
                         </div>
@@ -269,7 +268,7 @@ class SummaryPage extends React.Component {
                         <div className="bg-background shadow-sm d-flex align-items-center p-3 position-relative">
                             <FontAwesomeIcon icon={faClock} className="fa-3x color-transparent me-3 position-absolute end-0" />
                             <div className="small">
-                                <h3 className="mb-0">{this.state.averageHoldTime}</h3>
+                                <h3 className="mb-0 d-flex">{this.state.averageHoldTime}</h3>
                                 <span className="color-primary">Average Hold Time</span>
                             </div>
                         </div>
@@ -278,7 +277,7 @@ class SummaryPage extends React.Component {
                         <div className="bg-background shadow-sm d-flex align-items-center p-3 position-relative">
                             <FontAwesomeIcon icon={faUnlock} className="fa-3x color-transparent me-3 position-absolute end-0" />
                             <div className="small">
-                                <h3 className="mb-0">{this.state.openTrades}</h3>
+                                <h3 className="mb-0 d-flex">{this.state.openTrades}</h3>
                                 <span className="color-primary">Open Trades</span>
                             </div>
                         </div>
@@ -287,7 +286,7 @@ class SummaryPage extends React.Component {
                         <div className="bg-background shadow-sm d-flex align-items-center p-3 position-relative">
                             <FontAwesomeIcon icon={faLock} className="fa-3x color-transparent me-3 position-absolute end-0" />
                             <div className="small">
-                                <h3 className="mb-0">{this.state.closedTrades}</h3>
+                                <h3 className="mb-0 d-flex">{this.state.closedTrades}</h3>
                                 <span className="color-primary">Closed Trades</span>
                             </div>
                         </div>
