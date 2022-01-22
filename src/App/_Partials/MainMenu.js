@@ -20,13 +20,13 @@ class MainMenu extends React.Component {
             <section className="container-fluid">
                 <div className="row">
                     <div className="col-12 px-0 nav-user">
-                        <a href="#" className="d-flex align-items-center p-2">
+                        <NavLink className="d-flex align-items-center p-2" to="/user">
                             <img src={avatar} className="rounded img-fluid" width="59px" />
                             <p className="nav-user-info mb-0">
                                 <span className="h5 mb-0">username</span>
                                 <small>email@gmail.com</small>
                             </p>
-                        </a>
+                        </NavLink>
                     </div>
                 </div>
                 <div className="row py-2">

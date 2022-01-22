@@ -243,7 +243,9 @@ sidebar only pc
   #aside.custom-aside .nav-user a:hover .nav-user-info span {
       color: var(--text-primary);
   }
-
+  .nav-user a.active .nav-user-info span{
+    color: var(--primary);
+  }
 }
 
 

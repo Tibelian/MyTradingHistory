@@ -13,6 +13,7 @@ import TransactionsPage from './Pages/Transactions/TransactionsPage';
 import ReportsPage from './Pages/Reports/ReportsPage';
 import CalendarPage from './Pages/Calendar/CalendarPage';
 import ReportsDetailPage from './Pages/Reports/DetailPage';
+import UserSettings from './Pages/User/UserSettings';
 
 class App extends React.Component {
 
@@ -63,6 +64,7 @@ class App extends React.Component {
               <Route path="/reports" element={<ReportsPage handleCurrentPage={this.handleCurrentPage} />} />
               <Route path="/reports/:id" element={<ReportsDetailPage handleCurrentPage={this.handleCurrentPage} />} />
               <Route path="/calendar" element={<CalendarPage handleCurrentPage={this.handleCurrentPage} />} />
+              <Route path="/user" element={<UserSettings handleCurrentPage={this.handleCurrentPage} />} />
 
             </Routes>
 
