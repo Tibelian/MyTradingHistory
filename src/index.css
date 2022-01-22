@@ -363,3 +363,12 @@ label.upload {
 label.upload:hover {
   background-color: rgba(0, 0, 0, .05);
 }
+
+#report_tags {
+  min-width: 300px;
+}
+@media (max-width: 518px) {
+  #report_tags {
+    min-width: 200px;
+  }
+}

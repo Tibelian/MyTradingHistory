@@ -12,7 +12,7 @@ class Breadcrumb extends React.Component {
             <nav style={navStyle} aria-label="breadcrumb">
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item">Dashboard</li>
-                    <li className="breadcrumb-item active" aria-current="page">{this.props.currentPage}</li>
+                    <li className="breadcrumb-item active text-capitalize" aria-current="page">{this.props.currentPage}</li>
                 </ol>
             </nav>
         );
