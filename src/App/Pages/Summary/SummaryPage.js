@@ -1,4 +1,4 @@
-import { faAward, faBalanceScale, faCheck, faClock, faFileInvoiceDollar, faHandHoldingUsd, faLock, faPiggyBank, faTasks, faThumbsDown, faThumbsUp, faTimes, faUnlock } from '@fortawesome/free-solid-svg-icons';
+import { faBalanceScale, faCheck, faClock, faFileInvoiceDollar, faHandHoldingUsd, faLock, faPiggyBank, faTasks, faThumbsDown, faThumbsUp, faTimes, faUnlock } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 

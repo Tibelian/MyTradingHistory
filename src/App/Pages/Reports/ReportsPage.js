@@ -85,9 +85,9 @@ class ReportsPage extends React.Component {
                                     </td>
                                     <td>
                                         {(() => {
-                                            if (rp.status.toLowerCase() == 'open') 
+                                            if (rp.status.toLowerCase() === 'open') 
                                                 return <span className="badge bg-danger">Open</span>
-                                            if (rp.status.toLowerCase() == 'closed') 
+                                            if (rp.status.toLowerCase() === 'closed') 
                                                 return <span className="badge bg-secondary">Closed</span>
                                         })()}
                                     </td>

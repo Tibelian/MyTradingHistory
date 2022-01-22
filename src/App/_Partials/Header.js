@@ -1,7 +1,6 @@
-import { faBars, faBell, faInfoCircle, faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faBell, faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { Alert } from "react-bootstrap";
 
 class Header extends React.Component {
 

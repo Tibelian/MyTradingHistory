@@ -1,4 +1,4 @@
-import { faMinus, faUpload } from '@fortawesome/free-solid-svg-icons';
+import { faUpload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { createChart } from 'lightweight-charts';
 import React from 'react';
@@ -124,7 +124,7 @@ class DetailPage extends React.Component {
     render() {
 
         // TESTING
-        if (this.props.id != 1) 
+        if (this.props.id !== 1) 
             return <span className="text-danger h1">THIS REPORT IS NOT AVAILABLE</span>
 
         const tags = [
@@ -165,7 +165,7 @@ class DetailPage extends React.Component {
                                 <div className="d-flex align-items-center">
                                     <div className="d-flex flex-column px-3 text-center border-end">
                                         <small className="text-muted">Trade</small>
-                                        {this.state.report.status.toLowerCase() == 'open' ? (
+                                        {this.state.report.status.toLowerCase() === 'open' ? (
                                             <span className="badge bg-secondary">Open</span>
                                         ) : (
                                             <span className="badge bg-secondary">Closed</span>

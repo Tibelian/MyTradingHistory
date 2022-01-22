@@ -37,7 +37,7 @@ export default class UserSettings extends React.Component {
                                 <Tab.Pane eventKey="first">
                                     <div className="row justify-content-center mb-4 align-items-center">
                                         <div className="col-4 col-md-3 col-lg-2 text-end">
-                                            <img src={avatar} width="50" className="rounded" />
+                                            <img src={avatar} width="50" className="rounded" alt="user profile" />
                                         </div>
                                         <div className="col-8">
                                             <label htmlFor="user_avatar">Profile image:</label>
